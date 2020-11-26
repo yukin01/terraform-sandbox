@@ -1,0 +1,10 @@
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+list_a = []
+list_a_is_empty = true
+list_b = []
+list_b_is_empty = true
+list_c = []
+list_c_is_empty = false
