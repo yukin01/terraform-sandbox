@@ -1,0 +1,6 @@
+aws-load-balancer-controller:
+  clusterName: dummy
+  serviceAccount:
+    name: aws-load-balancer-controller
+    annotations:
+      eks.amazonaws.com/role-arn: dummy
