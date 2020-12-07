@@ -1,15 +1,15 @@
-data "aws_eks_cluster" "my_cluster" {
+data "aws_eks_cluster" "cluster" {
   name = module.eks.cluster_id
 }
 
-data "aws_eks_cluster_auth" "my_cluster" {
+data "aws_eks_cluster_auth" "cluster" {
   name = module.eks.cluster_id
 }
 
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.my_cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.my_cluster.certificate_authority[0].data)
-  token                  = data.aws_eks_cluster_auth.my_cluster.token
+  host                   = data.aws_eks_cluster.cluster.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
+  token                  = data.aws_eks_cluster_auth.cluster.token
   load_config_file       = false
 }
 
@@ -40,12 +40,12 @@ module "eks" {
   }
 }
 
-resource "aws_security_group_rule" "my_cluster" {
+resource "aws_security_group_rule" "cluster" {
   type                     = "ingress"
   from_port                = 0
   to_port                  = 65535
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.lb.id
 
-  security_group_id = data.aws_eks_cluster.my_cluster.vpc_config[0].cluster_security_group_id
+  security_group_id = data.aws_eks_cluster.cluster.vpc_config[0].cluster_security_group_id
 }
