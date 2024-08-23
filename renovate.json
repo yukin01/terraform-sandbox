@@ -2,5 +2,20 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "platformAutoMerge": true,
+  "packageRules": [
+    {
+      "matchManagers": ["terraform"],
+      "additionalBranchPrefix": "{{packageFileDir}}-",
+      "commitMessageSuffix": "({{packageFileDir}})",
+      "groupName": "terraform state",
+      "groupSlug": "tfstate",
+      "automerge": true,
+      "major": {
+        "automerge": false
+      },
+      "rangeStrategy": "pin"
+    }
   ]
 }
