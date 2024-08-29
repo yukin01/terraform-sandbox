@@ -19,7 +19,7 @@
     },
     {
       "matchManagers": ["terraform"],
-      "matchPackageNames": ["aws"],
+      "matchPackageNames": ["hashicorp/aws"],
       "allowedVersions": "<=5.63.1"
     }
   ]
