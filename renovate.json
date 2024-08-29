@@ -16,6 +16,11 @@
         "automerge": false
       },
       "rangeStrategy": "pin"
+    },
+    {
+      "matchManagers": ["terraform"],
+      "matchPackageNames": ["aws"],
+      "allowedVersions": "<=5.63.1"
     }
   ]
 }
