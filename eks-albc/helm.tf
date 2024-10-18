@@ -27,7 +27,7 @@ resource "helm_release" "albc" {
   name       = "aws-load-balancer-controller"
   repository = "https://aws.github.io/eks-charts"
   chart      = "aws-load-balancer-controller"
-  version    = "1.1.0"
+  version    = "1.9.2"
   namespace  = "kube-system"
 
   values = [yamlencode(
